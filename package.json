@@ -12,5 +12,12 @@
     "repository": {
         "type" : "git",
         "url" : "https://github.com/UnityMVR/umvr-package"
-    }
+    },
+    "samples": [
+        {
+            "displayName": "FooExample",
+            "description": "Basic use case",
+            "path": "Samples~/Example"
+        }
+    ]
 }
