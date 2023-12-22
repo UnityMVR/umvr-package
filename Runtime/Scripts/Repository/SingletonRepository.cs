@@ -32,5 +32,7 @@ namespace pindwin.umvr.Repository
 		}
 
 		public TModel Value => Entities.Count > 0 ? Entities[0] : default;
+
+		public static implicit operator TModel(SingletonRepository<TModel, TConcrete, TPresenter> r) => r.Value;
 	}
 }
