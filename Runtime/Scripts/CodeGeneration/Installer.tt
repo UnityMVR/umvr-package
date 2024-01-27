@@ -41,6 +41,7 @@ namespace <#= model.Namespace #>.Generated
 		{
 			Container.BindFactory<Id<#= factory.GetBindingGenericParametersString() #>, <#= model.Type#>, <#= factory.Type#>>();
 			Container.Bind<IModelFactory<I<#= model.Name #><#= factory.GetBindingGenericParametersString() #>>>().To<<#= factory.Type#>>().FromResolve();
+			Container.Bind<IModelFactory>().To<<#= factory.Type#>>().FromResolve();
 			Container.BindFactory<<#= model.Type#>, <#= reactor.Type#>, <#= reactorFactory.Type#>>();
 			Container.BindInterfacesAndSelfTo<<#= repository.Type #>>().AsSingle();
 		}
