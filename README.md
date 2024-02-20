@@ -18,7 +18,7 @@ public partial class FooReactor
 }
 ```
 
-I plan to add automatic, convention-based data binding in a near future.
+There's also experimental implementation of automatic view binding, for the time being though (20/02/24), I discourage using it yet; it's still subject to change.
 
 ## Repository
 This is the second meaning of R in UMVR - `Repository` lays out the models in a predictable way. Think of it like of the way to make your model a little more like a database, with each Repository being a table.
