@@ -26,6 +26,11 @@ namespace pindwin.umvr.Serialization.BytePatch
 			_stream = new MemoryStream(_buffer);
 			_writer = new BinaryWriter(_stream);
 		}
+		
+		public void Reset()
+		{
+			_stream.Position = 0;
+		}
 
 		public long CopyBufferAndReset(byte[] buffer)
 		{
