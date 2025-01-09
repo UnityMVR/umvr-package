@@ -33,11 +33,28 @@ namespace pindwin.umvr.Model
 
 			void RefreshSignature()
 			{
-				_appRunSignature = GetUnixTimestamp(Process.GetCurrentProcess().StartTime +
-													TimeSpan.FromSeconds(UnityEditor.EditorApplication.timeSinceStartup));
+				try
+				{
+					_appRunSignature = GetUnixTimestamp(
+						System.Diagnostics.Process.GetCurrentProcess().StartTime +
+						TimeSpan.FromSeconds(UnityEditor.EditorApplication.timeSinceStartup));
+				}
+				catch (NotSupportedException)
+				{
+					_appRunSignature = GetUnixTimestamp(
+						DateTime.Now + 
+						TimeSpan.FromSeconds(UnityEditor.EditorApplication.timeSinceStartup));
+				}
 			}
 #else
-			_appRunSignature = GetUnixTimestamp(Process.GetCurrentProcess().StartTime);
+			try
+			{
+				_appRunSignature = GetUnixTimestamp(System.Diagnostics.Process.GetCurrentProcess().StartTime);
+			}
+			catch (NotSupportedException)
+			{
+				_appRunSignature = GetUnixTimestamp(DateTime.Now);
+			}
 #endif
 		}
 
